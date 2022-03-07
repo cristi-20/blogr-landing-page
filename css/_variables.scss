@@ -1,0 +1,36 @@
+// Colors
+// Primary
+$lightRed:hsl(13, 100%, 72%);
+$lighterRed:hsl(353, 100%, 62%);
+$darkBlue:hsl(208, 49%, 24%);
+
+// Neutral
+$white:hsl(0, 0%, 100%);
+$grayishBlue:hsl(240, 2%, 79%);
+$darkGrayishBlue:hsl(207, 13%, 34%);
+$darkBlackBlue:hsl(240, 10%, 16%);
+
+// Gradient
+// Background gradient - body:
+$veryDarkGrayBlue:hsl(237, 17%, 21%);
+$veryDarkDesaturatedBlue:hsl(237, 23%, 32%);
+
+// Mixins
+@mixin fullWidth {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  @mixin easeOut {
+    transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -ms-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+  }
+  
+  @mixin flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }

@@ -1,0 +1,202 @@
+// Main Logo and Hamburger Menu Wrapper
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include md {
+        padding: 0;
+    }
+}
+
+.main-logo {
+    font-size: 2rem;
+    color: $white;
+    font-weight: bold;
+}
+
+// Hamburger Menu Icon 
+.menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    cursor: pointer;
+
+    // Makes the hamburger menu lines rotate 
+    &.close .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    &.close .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    &.close .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .bar {
+        height: 3px;
+        width: 25px;
+        background: white;
+        transition: .2s ease-in-out;
+    }
+
+    @include md {
+        display: none;
+    }
+}
+
+// Navigation
+.menu {
+    padding-top: 2rem;
+    
+    .custom-select-wrapper {
+        display: none;
+    }
+
+    .custom-select-wrapper.show {
+        @include flex;
+        background: #fff;
+        padding: 1rem 2rem 0 2rem;
+        text-align: center;
+        position: relative;
+
+        &:nth-child(1) {
+            padding-top: 2.3rem;
+            border-radius: 5px 5px 0px 0px;
+        }
+
+        &:nth-child(3):after {
+            content:'';
+            width:80%;
+            margin: auto;
+            height:1px;
+            background:$grayishBlue;
+            position: absolute;
+            bottom:-30px;
+        }
+
+        .custom-select {
+            width: 100%;  
+        }
+
+        .custom-select.open {
+            .custom-select__trigger {
+                span {
+                    color:$darkGrayishBlue;
+
+                    @include md {
+                text-decoration: underline;
+                color:$white;
+                    }
+                }
+            }
+
+            
+        }
+
+
+        .custom-select__trigger {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: .7rem;
+            cursor: pointer;
+
+            span {
+                font-size: 1.1rem;
+            }
+        }
+
+
+        .custom-options {
+            display: none;
+            cursor: pointer;
+
+            &.open {
+                background: $grayishBlue;
+                padding: 1.3rem;
+                display: flex;
+                flex-direction: column;
+                gap:1rem;
+            }
+        }
+
+        .custom-option {
+            color: $darkGrayishBlue;
+            font-size: 1.1rem;
+        }
+    } 
+
+    @include md {
+        .custom-select-wrapper.show:nth-child(3):after {
+            display: none;
+        }
+    }
+}
+
+// Navigation Buttons
+.nav-buttons {
+    display: none;
+
+    &.show {
+        display: flex;
+        flex-direction: column;
+        gap:1.5rem;
+        padding: 5rem 2rem 3rem 2rem;
+        background: #fff;
+        border-radius: 0px 0px 5px 5px;
+    }
+    
+    .login-btn {
+        font-size: 1.2rem;
+        color: $darkBlue;
+        font-weight: 600;
+        font-family: 'Overpass', sans-serif;
+    }
+   
+}
+
+// Dropdown Menu Arrow
+.arrow {
+    position: relative;
+    height: 7px;
+    width: 7px;
+    margin-left: 0.7rem;
+}
+
+.arrow::before,
+.arrow::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0.15rem;
+    height: 100%;
+    transition: all 0.5s;
+    background-color: $lightRed;
+
+    
+}
+
+.arrow::before {
+    left: -2px;
+    transform: rotate(45deg);
+
+}
+
+.arrow::after {
+    left: 2px;
+    transform: rotate(-45deg);
+}
+
+
+.open .arrow::before {
+    left: -2px;
+    transform: rotate(-45deg);
+}
+
+.open .arrow::after {
+    left: 2px;
+    transform: rotate(45deg);
+}
